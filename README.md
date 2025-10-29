@@ -2,17 +2,17 @@
 
 ---
 
-## 1. 🎨 **What Are Design Patterns**
+## 1. **What Are Design Patterns**
 
 Design Patterns are **reusable solutions** to common design problems in Object-Oriented Programming (OOP).  
 They describe **how classes and objects interact** to achieve flexible, maintainable, and scalable systems.
 
-### 🔸 Types of Design Patterns
-| Type | Purpose | Example |
-|------|----------|----------|
-| **Creational** | Object creation | Singleton, Factory |
-| **Structural** | Object composition | Adapter, Decorator |
-| **Behavioral** | Object interaction | Strategy, Observer |
+### Types of Design Patterns
+| Type | Purpose                                                                      | Example                     |
+|------|------------------------------------------------------------------------------|-----------------------------|
+| **Creational** | Provides object creation mechanisms                                          | Singleton, Factory, Builder |
+| **Structural** | Focus on how to compose classes and objects to form larger clever structures | Adapter, Decorator, Proxy   |
+| **Behavioral** | Concerned with how objects communicate and interact with each other          | Strategy, Observer, Command |
 
 ---
 
@@ -20,7 +20,7 @@ They describe **how classes and objects interact** to achieve flexible, maintain
 
 UML (Unified Modeling Language) visually represents OOP systems — classes, interfaces, and their relationships.
 
-### 🔹 **Access Modifiers**
+###  **Access Modifiers**
 | Symbol | Visibility | Meaning |
 |:------:|:------------|:--------|
 | `+` | Public | Accessible everywhere |
@@ -30,21 +30,62 @@ UML (Unified Modeling Language) visually represents OOP systems — classes, int
 
 ---
 
-## 3. 🔷 **Composition and Aggregation**
+### **Demonstrate Relationships Between Classes**
 
-| Relationship | Symbol | Description | Example |
-|---------------|:-------:|-------------|----------|
-| **Composition** | ◆ (filled diamond) | Strong ownership — one object **cannot exist** without the other | A `Car` **has-a** `Engine` |
-| **Aggregation** | ◇ (hollow diamond) | Weak ownership — parts can exist independently | A `Team` **has** `Players` |
+|Relationship |            Symbol             | Description | Example                                   |
+|--------------|:-----------------------------:|-------------|-------------------------------------------|
+| **Composition** |    `◆──` (filled diamond)     | Strong ownership — one object **cannot exist** without the other | A `Engine` **has-a** `Engine`             |
+| **Aggregation** |    `◇──` (hollow diamond)     | Weak ownership — parts can exist independently | A `Team` **has** `Players`                |
+| **Inheritance (Generalisation)** | `──▷` (hollow triangle arrow) | One class **inherits** from another (parent → child relationship) | `Dog` **extends** `Animal`                |
+| **Dependency** |     `---➤` (dashed arrow)     | Temporary or indirect relationship — one class **depends on** another | `Coach` **uses** `PlayerPerformance` data |
+
+---
+### Common multiplicity notation
+Multiplicity shows how many instances of one class relate to another.  
+It’s an important part of class diagrams because it sets the real-world rules your system needs to follow.
+
+Place multiplicity markers at the ends of association lines.
+
+Common multiplicity notations:
+
+| Symbol | Meaning                                                                                      |
+|:------:|:---------------------------------------------------------------------------------------------|
+|  `1`   | Exactly one                                                                                  |
+| `0..1` | Zero or one                                                                                  |
+| `0..*` | Zero or many (optional relationship)                                                         | 
+| `1..*` | One or many (mandatory relationship)                                                         |
+| `n..m` | A specific range (e.g., 2..4 = two to four instances)                                        |
+
+---
+### Step-by-step to make a UML diagram (football example)
+
+1. **Define purpose & scope**
+    - What am I modelling (e.g. Football Team Management)? Who is the audience? Static structure or behaviour?
+
+2. **Identify key classes**
+    - List main classes (e.g. `Team`, `Player`, `Coach`, `Match`).
+
+3. **Add attributes & methods**
+    - For each class add name, attributes (`+name: String`) and methods (`+playMatch()`).
+
+4. **Show relationships**
+    - Add Inheritance (is-a, e.g. `Goalkeeper` → `Player`) and other links: Composition (◆), Aggregation (◇), Dependency (----➤).
+
+5. **Set multiplicity**
+    - Specify counts (e.g. `Team` 1..* `Player`, `Team` 1 `Coach`) where relevant.
+
+6. **Review, test & share**
+    - Check names, visibility, relationships and multiplicity. Walk through the model and get team feedback.
+
 
 ---
 
-## 4. 🧭 **Example: Strategy Pattern (Behavioral)**
+### **Example: Strategy Pattern (Behavioral)**
 
 **Intent:**  
 Define a family of algorithms, encapsulate them, and make them interchangeable at runtime.
 
-### UML Diagram (Text Representation)
+**UML Diagram (Text Representation)**
 
 
 
