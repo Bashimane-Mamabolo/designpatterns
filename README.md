@@ -4,21 +4,22 @@
 
 ## 1. **What Are Design Patterns**
 
-Design Patterns are **reusable solutions** to common design problems in Object-Oriented Programming (OOP).  
-They describe **how classes and objects interact** to achieve flexible, maintainable, and scalable systems.
+Design patterns are **reusable solutions** to common problems that developers face when building software with Object-Oriented Programming (OOP). They provide proven approaches for making code more flexible, maintainable, and scalable.
+
+Think of design patterns as **blueprints** that show how to organize classes and objects to solve specific design problems effectively.
 
 ### Types of Design Patterns
 | Type | Purpose                                                                      | Example                     |
 |------|------------------------------------------------------------------------------|-----------------------------|
-| **Creational** | Provides object creation mechanisms                                          | Singleton, Factory, Builder |
-| **Structural** | Focus on how to compose classes and objects to form larger clever structures | Adapter, Decorator, Proxy   |
-| **Behavioral** | Concerned with how objects communicate and interact with each other          | Strategy, Observer, Command |
+| **Creational** | Control how objects are created                                          | Singleton, Factory, Builder |
+| **Structural** | Organize classes and objects to form larger structures | Adapter, Decorator, Proxy   |
+| **Behavioral** | Manage how objects communicate and work together          | Strategy, Observer, Command |
 
 ---
 
 ## 2. 📘 **UML Diagram Basics**
 
-UML (Unified Modeling Language) visually represents OOP systems — classes, interfaces, and their relationships.
+UML (Unified Modeling Language) is a visual language that helps us design and understand software systems. It shows classes, their attributes, methods, and how they relate to each other.
 
 ###  **Access Modifiers**
 | Symbol | Visibility | Meaning |
@@ -57,10 +58,10 @@ Common multiplicity notations:
 | `n..m` | A specific range (e.g., 2..4 = two to four instances)                                        |
 
 ---
-### Step-by-step to make a UML diagram (football example)
+### Creating UML Diagrams: Step-by-Step (football example)
 
 1. **Define purpose & scope**
-    - What am I modelling (e.g. Football Team Management)? Who is the audience? Static structure or behaviour?
+    - What am I modelling (e.g. Football Team Management)? Who will use the diagram?
 
 2. **Identify key classes**
     - List main classes (e.g. `Team`, `Player`, `Coach`, `Match`).
@@ -74,7 +75,7 @@ Common multiplicity notations:
 5. **Set multiplicity**
     - Specify counts (e.g. `Team` 1..* `Player`, `Team` 1 `Coach`) where relevant.
 
-6. **Review, test & share**
+6. **Review, share & refine**
     - Check names, visibility, relationships and multiplicity. Walk through the model and get team feedback.
 
 
@@ -83,24 +84,29 @@ Common multiplicity notations:
 ### **Example: Strategy Pattern (Behavioral)**
 
 **Intent:**  
-Define a family of algorithms, encapsulate them, and make them interchangeable at runtime.
+Define a family of algorithms, encapsulate them, and make them interchangeable at runtime.  
+e.g. sorting algorithms, or payment method (cash, credit card or paypal)
 
-**UML Diagram (Text Representation)**
+**UML Diagram**
+
+<p align="center">
+  <img src="StragegyPatternRefactorGuru.png" alt="Strategy Pattern UML Diagram" width="500">
+  <br>
+  <em>Strategy Pattern — image source: <a href="https://refactoring.guru/design-patterns/strategy">Refactoring.Guru</a></em>
+</p>
 
 
-
-
-
-### Key Points:
+**Key Points:**
 - `Context` **owns** (composition) a `Strategy` reference.
-- `ConcreteStrategyA` and `ConcreteStrategyB` **implement** the `Strategy` interface.
+- `ConcreteStrategies` (1 or more) **implement** the `Strategy` interface.
 - `Client` creates the `Context` and assigns the `Strategy`.
 
 ---
 
-## 5. ⚙️ **SOLID Principles**
+## 3. ⚙️ **SOLID Principles**
 
-These principles guide good OOP design and help patterns fit naturally into systems.
+SOLID principles are guidelines for writing clean, maintainable object-oriented code.  
+Refer to the example above for application.
 
 | Principle | Meaning | Example |
 |------------|----------|----------|
@@ -112,22 +118,23 @@ These principles guide good OOP design and help patterns fit naturally into syst
 
 ---
 
-## 6. 💎 **Software Qualities (Attributes)**
+## 4. 💎 **Software Qualities (Attributes)**
 
-Design patterns and SOLID help us achieve **good software qualities**:
+Design patterns and SOLID principles help us achieve these **important software qualities**:
 
-| Quality | Description |
-|----------|-------------|
-| **Reusability** | Components can be reused in different systems |
-| **Maintainability** | Easy to update or extend |
-| **Flexibility** | Behavior can change without rewriting code |
-| **Scalability** | System can grow without structural change |
-| **Low Coupling** | Fewer dependencies between components |
-| **High Cohesion** | Each class has a focused purpose |
+| Quality | Description                                   | Why it matters                  |
+|----------|-----------------------------------------------|---------------------------------|
+| **Reusability** | Components can be reused in different systems | Saves time and effort           |
+| **Maintainability** | Easy to update and fix                        | Reduces long-term costs         |
+| **Flexibility** | Behavior can change without rewriting code    | Handles changing business needs |
+| **Scalability** | System can grow without structural change     | Supports business growth                           |
+| **Low Coupling** | Fewer dependencies between components         |  Changes don't break other parts                               |
+| **High Cohesion** | Each class has a focused responsibility       |  Easier to understand and test                               |
 
 ---
 
-## 7. 🧰 **Toolkits: Wrappers, Generics, etc.**
+## 5. 🧰 **Design patterns Toolkits: Wrappers, Generics, etc.**
+These are common techniques used in design patterns:
 
 | Toolkit | Purpose | Example |
 |----------|----------|----------|
@@ -138,11 +145,11 @@ Design patterns and SOLID help us achieve **good software qualities**:
 
 ---
 
-## 8. 👤 **Client Role**
+## 6. 👤 **Client Role**
 
-The **Client** is the entry point that interacts with the system.  
-It decides **which strategy**, **which factory**, or **which adapter** to use.
+The Client is the code that uses the design patterns. It decides which patterns to apply and how to configure them.  
 
+It represents our application.
 ### Example (Simplified Java-like pseudocode):
 
 ```java
@@ -153,3 +160,23 @@ public class Client {
         context.performAction(); // Executes Strategy A
     }
 }
+```
+
+
+The client controls which strategy to use, demonstrating the Strategy pattern in action.
+
+*Key Client Responsibilities:*
+- Creates objects using appropriate patterns
+- Configures relationships between objects
+- Decides which strategy or implementation to use
+- Orchestrates the overall workflow
+---
+
+## 🎯 **Putting It All Together**
+*By combining UML for design, SOLID principles for code quality, and design patterns for proven solutions, we can build software that is:*
+
+- Easy to maintain (clean organization and structure)
+- Easy to change (flexible design)  
+- Easy to reuse (modular components)  
+
+This foundation helps create professional, quality software systems that can evolve over time.
